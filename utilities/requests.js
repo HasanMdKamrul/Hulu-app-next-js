@@ -1,47 +1,49 @@
+const api_key = process.env.API_KEY;
+
 const requests = {
   fetchTrending: {
     title: "Trending",
-    url: ``,
+    url: `/trending/all/week?api_key=${api_key}&language=en-US`,
   },
   fetchTopRated: {
     title: "Top Rated",
-    url: ``,
+    url: `/movie/top_rated?api_key=${api_key}&language=en-US`,
   },
-  fetchAction: {
+  fetchActionMovies: {
     title: "Action",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=28`,
   },
-  fetchComedy: {
+  fetchComedyMovies: {
     title: "Comedy",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=35`,
   },
-  fetchHorror: {
+  fetchHorrorMovies: {
     title: "Horror",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=27`,
   },
-  fetchRomance: {
+  fetchRomanceMovies: {
     title: "Romance",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=10749`,
   },
   fetchMystrey: {
     title: "Mystrey",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=9648`,
   },
   fetchScifi: {
     title: "Sci-fi",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=878`,
   },
   fetchWestern: {
     title: "Western",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=37`,
   },
   fetchAnimation: {
     title: "Animation",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=16`,
   },
   fetchTvMovie: {
     title: "Tv Movie",
-    url: ``,
+    url: `/discover/movie?api_key=${api_key}&with_genres=10770`,
   },
 };
 

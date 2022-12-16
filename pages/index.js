@@ -2,10 +2,13 @@ import { Inter } from "@next/font/google";
 import Head from "next/head";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
+import Results from "../components/Results";
+import requests from "../utilities/requests";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+export default function Home({ movies }) {
+  console.log(movies);
   return (
     <>
       <Head>
@@ -17,7 +20,29 @@ export default function Home() {
 
       <Header />
       <Navbar />
-      {/* Results */}
+      <Results movies={movies} />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const genre = context.query.genre;
+
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3${
+        requests[genre]?.url || requests.fetchTrending.url
+      }
+    `
+    );
+    const data = await response.json();
+
+    return {
+      props: {
+        movies: data.results,
+      },
+    };
+  } catch (error) {
+    console.log(error.message);
+  }
 }
