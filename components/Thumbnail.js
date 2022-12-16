@@ -19,7 +19,7 @@ const Thumbnail = ({ movie }) => {
       </div>
       <div className="p-2">
         <h2 className="group-hover:text-xl group-hover:font-bold group-hover:text-white transition-all duration-200 ease-in-out">
-          {movie.title}
+          {movie?.title || movie?.name}
         </h2>
         <p className="truncate">
           {movie.overview

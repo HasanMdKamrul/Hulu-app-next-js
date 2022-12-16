@@ -17,13 +17,14 @@ export default function Home({ movies }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <Header />
       <Navbar />
       <Results movies={movies} />
     </>
   );
 }
+
+// /movie/top_rated?api_key=${api_key}&language=en-US
 
 export async function getServerSideProps(context) {
   const genre = context.query.genre;
